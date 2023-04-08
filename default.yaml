@@ -11,8 +11,8 @@ config_version: '2023-03-03'
 
 # 方案列表
 schema_list:
-  - schema: rime_ice
-  - schema: double_pinyin
+  # - schema: rime_ice
+  # - schema: double_pinyin
   - schema: double_pinyin_flypy
 
 
@@ -33,9 +33,10 @@ switcher:
     - Control+grave
   save_options:  # 开关记忆，从方案选单（而非快捷键）切换时会记住的选项，需要记忆的开关不能设定 reset
     - ascii_punct
+    - full_shape
     - traditionalization
     - emoji
-  fold_options: true            # 呼出时是否折叠，多方案时建议折叠 true ，一个方案建议展开 false
+  fold_options: false            # 呼出时是否折叠，多方案时建议折叠 true ，一个方案建议展开 false
   abbreviate_options: true      # 折叠时是否缩写选项
   option_list_separator: ' / '  # 折叠时的选项分隔符
 
@@ -101,9 +102,9 @@ key_binder:
     # numbered_mode_switch:
     # - { when: always, accept: Control+Shift+1, select: .next }               # 在最近的两个方案之间切换
     # - { when: always, accept: Control+Shift+2, toggle: ascii_mode }          # 切换中英
-    - { when: always, accept: Control+Shift+3, toggle: ascii_punct }           # 切换中英标点
-    - { when: always, accept: "Control+Shift+4", toggle: traditionalization }  # 切换简繁
-    # - { when: always, accept: Control+Shift+5, toggle: full_shape }          # 切换全半角
+    # - { when: always, accept: Control+Alt+2, toggle: ascii_punct }           # 切换中英标点
+    # - { when: always, accept: Control+Alt+3, toggle: full_shape }          # 切换全半角
+    # - { when: always, accept: "Control+Alt_L+4", toggle: traditionalization }  # 切换简繁
 
     # emacs_editing:
     - { when: composing, accept: Control+p, send: Up }
