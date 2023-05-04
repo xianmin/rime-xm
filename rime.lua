@@ -11,7 +11,8 @@ function date_translator(input, seg, env)
     local timestamp = config:get_string(env.name_space .. "/timestamp") or "ts"
     -- 日期
     if (input == date) then
-        local cand = Candidate("date", seg.start, seg._end, os.date("%Y-%m-%d"), "")
+        local weakTab = {'日', '一', '二', '三', '四', '五', '六'}
+        local cand = Candidate("date", seg.start, seg._end, os.date("%Y-%m-%d") .. ' 星期' ..  weakTab[tonumber(os.date("%w") + 1)], "")
         cand.quality = 100
         yield(cand)
         local cand = Candidate("date", seg.start, seg._end, os.date("%Y/%m/%d"), "")
